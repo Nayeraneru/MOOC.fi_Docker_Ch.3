@@ -1,9 +1,9 @@
 services:
   frontend:
-    image: example-frontend
+    image: nayera10/example-frontend
     ports:
       - 5001:5001  
   backend:
-    image: example-backend
+    image: nayera10/example-backend
     ports:
       - 8080:8080
