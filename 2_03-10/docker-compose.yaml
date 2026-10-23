@@ -3,7 +3,16 @@ services:
     image: nayera10/example-frontend
     ports:
       - 5001:5001  
+
   backend:
     image: nayera10/example-backend
     ports:
       - 8080:8080
+    environment:
+      - REDIS_HOST = redis
+    depends_on:
+      - redis
+    restart: unless-stopped
+    
+  redis:
+    image: redis
