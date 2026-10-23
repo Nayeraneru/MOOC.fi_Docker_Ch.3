@@ -10,5 +10,3 @@ services:
     image: nayera10/example-frontend
     ports:
       - 5001:5001
-    environment:
-      - REACT_APP_BACKEND_URL=http://localhost:8080
