@@ -1,12 +1,9 @@
 services:
+  frontend:
+    image: example-frontend
+    ports:
+      - 5001:5001  
   backend:
-    image: nayera10/example-backend
+    image: example-backend
     ports:
       - 8080:8080
-    environment:
-      - REQUEST_ORIGIN=http://localhost:5001
-
-  frontend:
-    image: nayera10/example-frontend
-    ports:
-      - 5001:5001
