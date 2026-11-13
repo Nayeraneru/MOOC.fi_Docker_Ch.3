@@ -1,14 +1,11 @@
 services:
   frontend:
     image: nayera10/example-frontend
-    ports:
-      - 5001:5001  
 
   backend:
     image: nayera10/example-backend
-    ports:
-      - 8080:8080
     environment:
+      - REQUEST_ORIGIN=http://localhost:8000
       - REDIS_HOST=redis
       - POSTGRES_HOST=db
       - POSTGRES_PASSWORD=postgres
