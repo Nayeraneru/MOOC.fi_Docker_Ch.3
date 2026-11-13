@@ -11,7 +11,7 @@ services:
     environment:
       - REDIS_HOST=redis
       - POSTGRES_HOST=db
-      - POSTGRES_PASSWORD=example
+      - POSTGRES_PASSWORD=postgres
     depends_on:
       - redis
       - db
@@ -24,4 +24,4 @@ services:
     image: postgres:18
     restart: unless-stopped
     environment:
-      - POSTGRES_PASSWORD=example
+      - POSTGRES_PASSWORD=postgres
