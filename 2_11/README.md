@@ -81,7 +81,7 @@ docker compose up
 
 ```bash
 git clone <repo-url>
-cd kubernetes_challenge
+cd docker_challenge
 # create a .env file with DB_ROOT_PASSWORD, DB_NAME, DB_USER and DB_PASSWORD
 docker compose up --build
 ```
