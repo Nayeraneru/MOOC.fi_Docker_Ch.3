@@ -1,17 +1,15 @@
 services:
   frontend:
     image: nayera10/example-frontend
-    ports:
-      - 5001:5001  
 
   backend:
     image: nayera10/example-backend
-    ports:
-      - 8080:8080
     environment:
+      - REQUEST_ORIGIN=http://localhost:8000
       - REDIS_HOST=redis
       - POSTGRES_HOST=db
-      - POSTGRES_PASSWORD=example
+      - POSTGRES_PASSWORD=postgres
+
     depends_on:
       - redis
       - db
@@ -24,4 +22,16 @@ services:
     image: postgres:18
     restart: unless-stopped
     environment:
-      - POSTGRES_PASSWORD=example
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./database:/var/lib/postgresql
+
+  nginx:
+    image: nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - backend
